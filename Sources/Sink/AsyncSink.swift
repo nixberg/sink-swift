@@ -1,7 +1,7 @@
 public protocol AsyncSink<Element>: Sink {
     associatedtype Element
     
-    mutating func write(_ element: Element) async throws
+    mutating func append(_ element: Element) async throws
     
-    mutating func write(contentsOf sequence: some Sequence<Element>) async throws
+    mutating func append(contentsOf sequence: some Sequence<Element>) async throws
 }

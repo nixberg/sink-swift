@@ -1,6 +1,5 @@
 public struct SinkAdapter<Base: MutableCollection>: Sink {
     public typealias Element = Base.Element
-    
     private let basePointer: UnsafeMutablePointer<Base>
     
     private var index: Base.Index
@@ -10,14 +9,14 @@ public struct SinkAdapter<Base: MutableCollection>: Sink {
         index = basePointer.pointee.startIndex
     }
     
-    public mutating func write(_ element: Element) {
+    public mutating func append(_ element: Element) {
         basePointer.pointee[index] = element
         index = basePointer.pointee.index(after: index)
     }
     
-    public mutating func write(contentsOf sequence: some Sequence<Element>) {
+    public mutating func append(contentsOf sequence: some Sequence<Element>) {
         for element in sequence {
-            self.write(element)
+            self.append(element)
         }
     }
 }
