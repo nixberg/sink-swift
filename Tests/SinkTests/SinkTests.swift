@@ -2,17 +2,17 @@ import Sink
 import XCTest
 
 final class SinkTests: XCTestCase {
-    func testSink() throws {
+    func testSink() {
         var sink = [0] as any Sink<_>
         
-        try sink.append(1)
-        XCTAssertEqual(sink as! Array, [0, 1])
+        sink.append(1)
+        XCTAssertEqual(sink as? Array, [0, 1])
         
-        try sink.append(contentsOf: [2, 3])
-        XCTAssertEqual(sink as! Array, [0, 1, 2, 3])
+        sink.append(contentsOf: [2, 3])
+        XCTAssertEqual(sink as? Array, [0, 1, 2, 3])
     }
     
-    func testArray() throws {
+    func testArray() {
         var array = [0, 1, 2, 3]
         
         array[1...].withSink {
