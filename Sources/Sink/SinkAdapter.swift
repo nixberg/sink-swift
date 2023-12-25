@@ -23,8 +23,8 @@ public struct SinkAdapter<Base: MutableCollection> {
 }
 
 extension SinkAdapter: Sink {
-    public mutating func append(_ element: Element) {
-        base.pointee[index] = element
+    public mutating func append(_ newElement: Element) {
+        base.pointee[index] = newElement
         index = base.pointee.index(after: index)
     }
     
