@@ -1,14 +1,12 @@
 public protocol Sink<Element> {
     associatedtype Element
     
-    mutating func append(_ element: Element) throws
+    mutating func append(_ newElement: Element)
     
-    mutating func append(contentsOf sequence: some Sequence<Element>) throws
+    mutating func append(contentsOf newElements: some Sequence<Element>)
+    
+    mutating func reserveCapacity(_ minimumCapacity: Int)
 }
-
-public typealias ByteSink = Sink<UInt8>
-
-public typealias ByteSequence = Sequence<UInt8>
 
 extension Array: Sink {}
 
