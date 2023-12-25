@@ -15,3 +15,11 @@ extension ArraySlice: Sink {}
 extension ContiguousArray: Sink {}
 
 extension Slice: Sink where Base: RangeReplaceableCollection {}
+
+extension String: Sink {}
+
+extension String.UnicodeScalarView: Sink {}
+
+extension Substring: Sink {}
+
+extension Substring.UnicodeScalarView: Sink {}
