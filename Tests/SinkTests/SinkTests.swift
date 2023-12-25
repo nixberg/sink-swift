@@ -12,7 +12,7 @@ final class SinkTests: XCTestCase {
         XCTAssertEqual(sink as? Array, [0, 1, 2, 3])
     }
     
-    func testArray() {
+    func testSinkAdapter() {
         var array = [0, 1, 2, 3]
         
         array[1...].withSink {
